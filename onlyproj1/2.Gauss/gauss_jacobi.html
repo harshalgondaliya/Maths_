@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gauss_jacobi.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+    <title>Gauss-Jacobi Method</title>
+    <script>
+        function gaussJacobi() {
+            // Get user input for coefficients A and constants B
+            var A = [];
+            var B = [];
+            var n = parseInt(document.getElementById("equations").value);
+            for (var i = 0; i < n; i++) {
+                var coefficients = [];
+                for (var j = 0; j < n; j++) {
+                    coefficients.push(parseFloat(document.getElementById("coeff_" + i + "_" + j).value));
+                }
+                A.push(coefficients);
+                B.push(parseFloat(document.getElementById("const_" + i).value));
+            }
+
+            var X = new Array(n).fill(0); // Initial guess
+
+            // Number of iterations
+            var iterations = parseInt(document.getElementById("iterations").value);
+
+            // Perform Gauss-Jacobi iterations
+            for (var k = 0; k < iterations; k++) {
+                var Xnew = [];
+                for (var i = 0; i < n; i++) {
+                    var sum = 0;
+                    for (var j = 0; j < n; j++) {
+                        if (j !== i) {
+                            sum += A[i][j] * X[j];
+                        }
+                    }
+                    Xnew[i] = (B[i] - sum) / A[i][i];
+                }
+                X = Xnew;
+            }
+
+            // Display results
+            var result = "<h2>Result of Gauss jacobi Method :</h2><ul>";
+            for (var i = 0; i < n; i++) {
+                result += "<li>X" + (i + 1) + " = " + X[i].toFixed(6) + "</li>";
+            }
+            result += "</ul>";
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gauss-Jacobi Method</h1>
+        <p>Enter the number of equations:</p>
+        <input type="number" id="equations" value="3">
+        <p>Enter the coefficients only :</p>
+        <table id="inputTable">
+            <!-- Coefficients input -->
+        </table>
+        <p>Enter the number of iterations:</p>
+        <input type="number" id="iterations" value="10">
+        <button onclick="gaussJacobi()">Compute</button>
+        <div id="output"></div>
+
+        <script>
+            // Dynamically create input fields based on the number of equations
+            var equationsInput = document.getElementById("equations");
+            equationsInput.addEventListener("change", function() {
+                var n = parseInt(this.value);
+                var inputTable = document.getElementById("inputTable");
+                inputTable.innerHTML = "";
+                for (var i = 0; i < n; i++) {
+                    var row = document.createElement("tr");
+                    for (var j = 0; j < n; j++) {
+                        var cell = document.createElement("td");
+                        var input = document.createElement("input");
+                        input.type = "number";
+                        input.id = "coeff_" + i + "_" + j;
+                        input.value = "0";
+                        cell.appendChild(input);
+                        row.appendChild(cell);
+                    }
+                    var constCell = document.createElement("td");
+                    var constInput = document.createElement("input");
+                    constInput.type = "number";
+                    constInput.id = "const_" + i;
+                    constInput.value = "0";
+                    constCell.appendChild(constInput);
+                    row.appendChild(constCell);
+                    inputTable.appendChild(row);
+                }
+            });
+            equationsInput.dispatchEvent(new Event("change"));
+        </script>
+    </div>
+</body>
+
+</html>

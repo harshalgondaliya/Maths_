@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Integration using Trapezoidal Rule</title>
+    <link rel="stylesheet" href="tr.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Numerical Integration using Trapezoidal Rule</h1>
+        <div id="input">
+            <label for="xValues">Enter x values (comma-separated):</label>
+            <input type="text" id="xValues"><br>
+            <label for="yValues">Enter y values (comma-separated):</label>
+            <input type="text" id="yValues"><br>
+            <label for="lowerLimit">Enter the lower limit:</label>
+            <input type="number" id="lowerLimit"><br>
+            <label for="upperLimit">Enter the upper limit:</label>
+            <input type="number" id="upperLimit"><br>
+            <label for="n">Enter the number of intervals:</label>
+            <input type="number" id="n"><br>
+            <button onclick="calculateIntegration()">Calculate Integration</button>
+        </div>
+        <div id="output">
+            <h2>Result:</h2>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

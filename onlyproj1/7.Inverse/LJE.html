@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gauss-Jordan Elimination</title>
+    <link rel="stylesheet" href="LJE.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>System of Linear Equations Solver using Gauss-Jordan Elimination</h2>
+        <p>Enter the coefficients of the equations:</p>
+        <p>
+            <input type="text" id="a11">x + <input type="text" id="a12">y + <input type="text" id="a13">z = <input type="text" id="b1"><br>
+            <input type="text" id="a21">x + <input type="text" id="a22">y + <input type="text" id="a23">z = <input type="text" id="b2"><br>
+            <input type="text" id="a31">x + <input type="text" id="a32">y + <input type="text" id="a33">z = <input type="text" id="b3"><br>
+        </p>
+        <button onclick="solveEquations()">Solve</button>
+        <div id="matrix"></div>
+        <script src="LJE.js"></script>
+    </div>
+</body>
+
+</html>

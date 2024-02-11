@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spearman's Rank Correlation Coefficient</title>
+    <link rel="stylesheet" href="sr.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Spearman's Rank Correlation Coefficient</h2>
+        <div class="box">
+            <div>
+                <label for="xValues">Enter X Values (Separated by commas):</label><br>
+                <input type="text" id="xValues"><br>
+            </div>
+            <div>
+                <label for="yValues">Enter Y Values (Separated by commas):</label><br>
+                <input type="text" id="yValues"><br>
+            </div>
+            <button onclick="calculateCorrelation()">Calculate</button>
+            <div id="result"></div>
+        </div>
+        <script src="sr.js"></script>
+    </div>
+</body>
+
+</html>

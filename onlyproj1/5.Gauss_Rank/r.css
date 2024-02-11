@@ -1,0 +1,66 @@
+/* Styling for the body */
+
+body {
+    background-color: #46e0e8;
+    /* Set your desired background color here */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Styling for the container */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    /* Set your desired background color here */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional: add a shadow */
+}
+
+
+/* Styling for the matrix input table */
+
+#matrixInput {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#matrixInput th,
+#matrixInput td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+
+/* Styling for the final matrix display */
+
+#finalMatrix {
+    margin-top: 20px;
+}
+
+#finalMatrix table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#finalMatrix th,
+#finalMatrix td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+
+/* Styling for the middle section */
+
+.middle {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+}
